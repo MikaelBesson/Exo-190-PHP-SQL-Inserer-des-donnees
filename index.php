@@ -5,10 +5,10 @@
  * Vous utiliserez également les deux tables que vous aviez créées au point 2 ( créer des tables avec PHP )
  */
 
-    /**
-     * Créez ici votre objet de connection PDO, et utilisez à chaque fois le même objet $pdo ici.
-     */
-$server ='localhost';
+/**
+ * Créez ici votre objet de connection PDO, et utilisez à chaque fois le même objet $pdo ici.
+ */
+$server = 'localhost';
 $user = 'root';
 $password = '';
 $db = 'table_test_phpmyadmin';
@@ -24,16 +24,16 @@ try {
 
     // TODO votre code ici.
 
-$dt = new DateTime();
-$date = $dt->format('Y-m-d H:i:s');
+    $dt = new DateTime();
+    $date = $dt->format('Y-m-d H:i:s');
 
-$create = "
+    $create = "
     INSERT INTO utilisateur(nom,prenom,email,password,adresse,code_postal,pays,date_join)
     VALUES ('dark','vador','deathstar@espace.univers','54556','etoile noire ch1','01000','espace intergalactique', '25/02/21')
 ";
 
-$action = $pdo->exec($create);
-echo "nouveaux utilisateur cree : " . $action . '<br>';
+    $action = $pdo->exec($create);
+    echo "nouveaux utilisateur cree : " . $action . '<br>';
 
     /**
      * 2. Insérez un nouveau produit dans la table produit
@@ -41,14 +41,14 @@ echo "nouveaux utilisateur cree : " . $action . '<br>';
 
     // TODO votre code ici.
 
-$createProd = "
+    $createProd = "
     INSERT INTO produit(titre,prix,description_courte,description_longue)
     VALUES ('blaster','1500','blaster ayant appatenue a un storm trooper de la 501em',
             'En bon etat general quelques rayure de peinture lui donne un aspect plus combattant livrer avec son support et son kit nettoyage')
 ";
 
-$action2 = $pdo->exec($createProd);
-echo "nouveaux objet cree : " . $action2 . '<br>';
+    $action2 = $pdo->exec($createProd);
+    echo "nouveaux objet cree : " . $action2 . '<br>';
 
     /**
      * 3. En une seule requête, ajoutez deux nouveaux utilisateurs à la table utilisateur.
@@ -56,14 +56,14 @@ echo "nouveaux objet cree : " . $action2 . '<br>';
 
     // TODO Votre code ici.
 
-$insertuser = "
+    $insertuser = "
     INSERT INTO utilisateur(nom,prenom,email,password,adresse,code_postal,pays,date_join) 
     VALUES ('solo','han','hSolo@espace.univers','68541','la cantinna,coruscant','89895','coruscant','25/02/21'),
            ('skywalker','luke','skyman@espace.univers','02156','tatoinne','26548','tatoinne','25/02/21')
 ";
 
-$action3 = $pdo->exec($insertuser);
-echo "nouveaux utilisateur cree : " . $action3 . '<br>';
+    $action3 = $pdo->exec($insertuser);
+    echo "nouveaux utilisateur cree : " . $action3 . '<br>';
 
     /**
      * 4. En une seule requête, ajoutez deux produits à la table produit.
@@ -71,14 +71,14 @@ echo "nouveaux utilisateur cree : " . $action3 . '<br>';
 
     // TODO Votre code ici.
 
-$insertprod = "
+    $insertprod = "
     INSERT INTO produit(titre,prix,description_courte,description_longue)
     VALUES ('sabre laser','2500','un sabre laser peut servit','un sabre laser de couleur bleu tres peu servit cree juste avant execution de ordre 66'),
            ('cuir de banta','50','du cuir de premiere qualite','un cuir souple pouvant servir a la confection de ceinture ou besace')     
 ";
 
-$action4 = $pdo->exec($insertprod);
-echo "nouveaux objet cree : " . $action4 . '<br>';
+    $action4 = $pdo->exec($insertprod);
+    echo "nouveaux objet cree : " . $action4 . '<br>';
 
 
     /**
@@ -116,8 +116,7 @@ echo "nouveaux objet cree : " . $action4 . '<br>';
     echo "requete begin ok !! <br>";
 
 
-}
-catch(PDOException $e){
+} catch (PDOException $e) {
     echo 'Erreur : ' . $e->getMessage() . "<br>";
     $pdo->rollBack();
 }
